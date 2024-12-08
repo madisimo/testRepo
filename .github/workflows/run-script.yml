@@ -1,0 +1,16 @@
+name: Run Script
+on:
+  workflow_dispatch: # Позволяет запускать действие вручную
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Execute script
+        run: |
+          curl -sSL https://raw.githubusercontent.com/ImMALWARE/bash-warp-generator/main/warp_generator.sh | bash
+
+      - name: Wait for 1 minute
+        run: sleep 60 
